@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="static/style.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <img src="<%= flag %>">
+    <ul>
+        <% answers.forEach(function(country) { %>
+            <li class="answer"><%= country %></li>
+        <% }); %>
+    </ul>
+    <div id="counter"></div>
+</body>
+<script>
+
+    $(document).ready(function() {
+      $('.answer').click(function() {
+        $(this).siblings().removeClass('incorrect');
+        if ($(this).text() === "<%= correctAnswer %>") {
+          $(this).addClass('correct');
+          setTimeout(function() {
+            location.reload();
+          }, 1000);
+        } else {
+            $(this).addClass('incorrect');
+        }
+      });
+    });
+  </script>
+
+</scri>
+</html>
